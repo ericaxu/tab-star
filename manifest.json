@@ -3,11 +3,12 @@
 
   "name": "Tab Star",
   "description": "Close all the tabs you no longer need in just one keypress.",
-  "version": "1.0",
+  "version": "1.1",
   "icons": { "128": "image/icon.png" },
 
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ],
 
   "commands": {
