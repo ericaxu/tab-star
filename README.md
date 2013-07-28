@@ -14,4 +14,4 @@ Features
 
 Usage
 -----
-Press `Ctrl/Cmd+Shift+S` to toggle star for current tab and `Ctrl/Cmd+Shift+X` to close all unstarred tabs.
+Press `Ctrl/Cmd+Shift+S` to toggle star for current tab and `Ctrl/Cmd+Shift+X` to close all unstarred tabs. Alternatively, at the bottom of the Chrome Extension page, there's a "Keyboard shortcuts" option where you can change the Tab Star shortcuts to anything you like.

@@ -18,17 +18,17 @@ function updateIcon(info) {
             starredTabs[tab.id.toString()] = true;
             //console.log("Tab has url " + tab.url + " and star status is " + starredTabs[tab.id.toString()]);
         };
+        var starred = starredTabs[info.tabId.toString()];
+        // update icon and title
+        if (typeof starred != "undefined" && starred) {
+            chrome.browserAction.setIcon({ path: "image/starred.png" });
+            chrome.browserAction.setTitle({ title: "Unstar current tab" });
+        }
+        else {
+            chrome.browserAction.setIcon({ path: "image/unstarred.png" });
+            chrome.browserAction.setTitle({ title: "Star current tab" });
+        }
     });
-    var starred = starredTabs[info.tabId.toString()];
-    // update icon and title
-    if (typeof starred != "undefined" && starred) {
-        chrome.browserAction.setIcon({ path: "image/starred.png" });
-        chrome.browserAction.setTitle({ title: "Unstar current tab" });
-    }
-    else {
-        chrome.browserAction.setIcon({ path: "image/unstarred.png" });
-        chrome.browserAction.setTitle({ title: "Star current tab" });
-    }
 }
 
 // toggle star status of given tab
@@ -102,7 +102,8 @@ function updateWindowFocusChange(windowId) {
 // load storage data to urls
 function loadUrlsFromStorage() {
     chrome.storage.local.get("saved-urls", function(resultUrls) {
-        urls = resultUrls["saved-urls"];
+        if (typeof resultUrls["save-urls"] != "undefined")
+            urls = resultUrls["saved-urls"];
     });
 }
 
